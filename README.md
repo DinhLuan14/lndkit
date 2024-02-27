@@ -1,4 +1,4 @@
-# Project Name
+# LNDKIT
 
 Inspired by [speedy](https://github.com/anhvth/speedy), this repo improves coding speed with smart caching. It saves results in disks to cut down on repeat work.
 
