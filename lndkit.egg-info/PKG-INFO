@@ -13,5 +13,5 @@ Classifier: Operating System :: OS Independent
 Requires-Python: >=3.6
 Description-Content-Type: text/markdown
 
-This is a simple package that includes functions to read and write JSON files.
+luannd toolkit
 

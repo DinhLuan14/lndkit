@@ -1,6 +1,9 @@
+README.md
 setup.py
 lndkit/__init__.py
 lndkit/json_utils.py
+lndkit/speedy.py
+lndkit/utils.py
 lndkit.egg-info/PKG-INFO
 lndkit.egg-info/SOURCES.txt
 lndkit.egg-info/dependency_links.txt
