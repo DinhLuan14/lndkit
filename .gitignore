@@ -1,0 +1,4 @@
+./build
+./lndkit/__pycache__
+./dist
+./lndkit.egg-info
