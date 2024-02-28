@@ -8,7 +8,7 @@ from lndkit import cachef, hashf, read_json, timef, write_json
 
 # test timef func
 @timef
-@cachef(["input_path"])
+@cachef(["input_path"], cache_dir="test_cache")
 def rwjson(input_path, output_path):
     print("read_json file", input_path)
     data = read_json(input_path)

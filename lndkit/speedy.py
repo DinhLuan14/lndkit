@@ -5,6 +5,7 @@ import os.path as osp
 from .utils import dump_json_or_pickle, hashf, load_json_or_pickle
 
 AV_CACHE_DIR = osp.join(osp.expanduser("~"), ".cache/av")
+DEFAULT_CACHE_DIR = osp.join(osp.expanduser("~"), ".cache/lndkit/av")
 ICACHE = dict()
 
 
@@ -12,7 +13,9 @@ def get_arg_names(func):
     return inspect.getfullargspec(func).args
 
 
-def cachef(keys):
+def cachef(keys, cache_dir=None):
+    cache_dir = DEFAULT_CACHE_DIR if cache_dir is None else osp.join(osp.expanduser("~"), f".cache/lndkit/{cache_dir}")
+
     def decorator_cachef(func):
         @functools.wraps(func)
         def wrapper(*args, **kwargs):
@@ -35,7 +38,7 @@ def cachef(keys):
             func_id = hashf(inspect.getsource(func))
             key_names = "_".join(keys)
             cache_path = osp.join(
-                AV_CACHE_DIR,
+                cache_dir,
                 f"{func.__name__}_{func_id}",
                 f"{key_names}_{key_id}.pkl",
             )
