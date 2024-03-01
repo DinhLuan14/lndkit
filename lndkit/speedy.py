@@ -4,9 +4,7 @@ import os.path as osp
 
 from .utils import dump_json_or_pickle, hashf, load_json_or_pickle
 
-AV_CACHE_DIR = osp.join(osp.expanduser("~"), ".cache/av")
 DEFAULT_CACHE_DIR = osp.join(osp.expanduser("~"), ".cache/lndkit/av")
-ICACHE = dict()
 
 
 def get_arg_names(func):

@@ -2,3 +2,4 @@
 ./lndkit/__pycache__
 ./dist
 ./lndkit.egg-info
+./tests/json_write/*

@@ -16,7 +16,7 @@ pip install git+https://github.com/DinhLuan14/lndkit
 ```python
 from lndkit import cachef
 
-@cachef(keys=['arg1', 'arg2'])
+@cachef(keys=['arg1', 'arg2'], cache_dir="tests")
 def some_function(arg1, arg2):
     # Function logic here
     return result
