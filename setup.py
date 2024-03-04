@@ -2,7 +2,7 @@ from setuptools import find_packages, setup
 
 setup(
     name="lndkit",
-    version="0.0.2",
+    version="0.0.3",
     author="luannd",
     author_email="dinhluanwork@gmail.com",
     description="A simple utility package for JSON operations",
