@@ -28,8 +28,8 @@ def cachef(keys, cache_dir=None):
 
             values = [get_key_value(key) for key in keys]
 
-            # If no valid key, simply run the function
-            if keys is None:
+            # If keys not provide, simply run the function
+            if not keys:
                 return func(*args, **kwargs)
 
             key_id = hashf(values)  # Assuming 'hashf' generates a unique hash
