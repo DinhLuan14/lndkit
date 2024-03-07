@@ -11,7 +11,7 @@ def read_json(file_path):
     return data
 
 
-def write_json(data, name, format_type="both", sample=None):
+def write_json(data, name, format_type="both", sample=None, info=True):
     assert format_type in ["both", "json", "jsonl"]
 
     output_json = f"{name}.json"
@@ -22,11 +22,17 @@ def write_json(data, name, format_type="both", sample=None):
     # write  file JSON
     if format_type in ["json", "both"]:
         with open(output_json, "w", encoding="utf-8") as file:
-            json.dump({"__count__": len(data), "data": data}, file, ensure_ascii=False, indent=3)
+            if info:
+                json.dump({"__count__": len(data), "data": data}, file, ensure_ascii=False, indent=3)
+            else:
+                json.dump(data, file, ensure_ascii=False, indent=3)
         if sample is not None and sample > 0:
             data_sample = random.sample(data, min(sample, len(data)))
             with open(output_sample_json, "w", encoding="utf-8") as file:
-                json.dump({"__count__": len(data_sample), "data": data_sample}, file, ensure_ascii=False, indent=3)
+                if info:
+                    json.dump({"__count__": len(data_sample), "data": data_sample}, file, ensure_ascii=False, indent=3)
+                else:
+                    json.dump(data_sample, file, ensure_ascii=False, indent=3)
 
     # write file JSONL
     if format_type in ["jsonl", "both"]:
