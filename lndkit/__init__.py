@@ -1,5 +1,10 @@
 from .json_utils import read_json, write_json
-from .metrics import compute_exact_score, compute_f1_score, compute_score_multi_gts
+from .metrics import (
+    ComputeCosine,
+    compute_exact_score,
+    compute_f1_score,
+    compute_score_multi_gts,
+)
 from .speedy import cachef
 from .threads import threadsf
 from .utils import (
