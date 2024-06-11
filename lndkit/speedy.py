@@ -11,7 +11,7 @@ def get_arg_names(func):
     return inspect.getfullargspec(func).args
 
 
-def cachef(keys, cache_dir=None):
+def cachef(keys, run_func=True, cache_dir=None):
     cache_dir = DEFAULT_CACHE_DIR if cache_dir is None else osp.join(osp.expanduser("~"), cache_dir)
 
     def decorator_cachef(func):
@@ -42,6 +42,8 @@ def cachef(keys, cache_dir=None):
             )
             if osp.exists(cache_path):
                 return load_json_or_pickle(cache_path)
+            if not run_func:
+                return None
             result = func(*args, **kwargs)
             dump_json_or_pickle(result, cache_path)
             return result
