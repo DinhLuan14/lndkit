@@ -12,7 +12,7 @@ def get_arg_names(func):
 
 
 def cachef(keys, cache_dir=None):
-    cache_dir = DEFAULT_CACHE_DIR if cache_dir is None else osp.join(osp.expanduser("~"), f".cache/lndkit/{cache_dir}")
+    cache_dir = DEFAULT_CACHE_DIR if cache_dir is None else osp.join(osp.expanduser("~"), cache_dir)
 
     def decorator_cachef(func):
         @functools.wraps(func)
